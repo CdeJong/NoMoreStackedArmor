@@ -1,0 +1,7 @@
+name: NoMoreStackedArmor
+version: '${project.version}'
+main: com.shebbasoft.nomorestackedarmor.NoMoreStackedArmor
+author: Sheepert_
+api-version: 1.12.2
+
+
