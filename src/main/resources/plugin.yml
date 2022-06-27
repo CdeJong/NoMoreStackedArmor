@@ -3,5 +3,8 @@ version: '${project.version}'
 main: com.shebbasoft.nomorestackedarmor.NoMoreStackedArmor
 author: Sheepert_
 api-version: 1.12.2
-
+commands:
+  open:
+    usage: /open
+    description: opens test gui
 

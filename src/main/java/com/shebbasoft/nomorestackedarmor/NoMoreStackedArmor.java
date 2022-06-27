@@ -1,5 +1,7 @@
 package com.shebbasoft.nomorestackedarmor;
 
+import com.shebbasoft.nomorestackedarmor.temp.OpenTestGuiCommand;
+import com.shebbasoft.nomorestackedarmor.temp.TestGuiEventListener;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.event.EventHandler;
@@ -47,22 +49,38 @@ public final class NoMoreStackedArmor extends JavaPlugin implements Listener {
     @Override
     public void onEnable() {
         getServer().getPluginManager().registerEvents(this, this);
+
+
+        // TODO REMOVE
+        getServer().getPluginManager().registerEvents(new TestGuiEventListener(), this);
+        getCommand("open").setExecutor(new OpenTestGuiCommand());
+
     }
 
     @EventHandler(priority = EventPriority.HIGHEST)
     public void onArmorEquip(PlayerInteractEvent event) {
+        // todo remove
+        event.getPlayer().sendMessage("");
+        event.getPlayer().sendMessage("event #0");
 
         Action action = event.getAction();
+        event.getPlayer().sendMessage(action.toString());
 
         if (!action.equals(Action.RIGHT_CLICK_AIR) && !action.equals(Action.RIGHT_CLICK_BLOCK)) {
             return;
         }
+
+        // todo remove
+        event.getPlayer().sendMessage("event #1");
 
         ItemStack item = event.getItem();
 
         if (item == null || item.getAmount() <= MAX_ARMOR_AMOUNT || !ARMOR_ITEMS.contains(item.getType())) {
             return;
         }
+
+        // todo remove
+        event.getPlayer().sendMessage("event #2");
 
         event.setCancelled(true);
 
